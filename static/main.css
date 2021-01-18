@@ -1,0 +1,39 @@
+body{
+    background-color: rgba(107, 165, 136, 0.7);
+}
+
+#s1{
+    background:linear-gradient(
+		to right, 
+		rgba(25,255,255,0.4),
+        rgba(255,222,143,0.4));
+        min-height: 80vh;
+        min-width: 60vh;
+       margin-top: 10px;
+        margin-left: 50px;
+        margin-right: 50px;
+        border-radius: 2rem;
+}
+#text{
+    display: block;
+    margin : 0 auto;
+    margin-bottom: auto;
+    
+}
+#btn{
+    display: block;
+    margin : 0 auto;
+    
+    
+}
+
+.text{
+    position:fixed;
+    top: 50%;
+    left: 50%;
+    width:30em;
+    height:18em;
+    margin-top: -9em; /*set to a negative number 1/2 of your height*/
+    margin-left: -15em; /
+   
+}
