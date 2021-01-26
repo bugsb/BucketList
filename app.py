@@ -17,6 +17,7 @@ def index():
 	myquery = { "name": { "$regex": "^[a-z]|^[A-Z]" } }
 	for i in mycol.find(myquery):
 		data.append(i["name"])
+		print(i["_id"])
 		data = sorted(data)
 	return render_template('index.html',data=data)
 
@@ -27,7 +28,7 @@ def submit():
 		myDict = {}
 		myDict["name"] = data
 		mycol.insert_one(myDict)
-	return redirect('/')
+	return redirect('/admin/fjewiewirw4i3ri')
 
 @app.route('/view',methods=['GET','POST'])
 def see():
@@ -37,6 +38,36 @@ def see():
 		data.append(i["name"])
 		data = sorted(data)
 	return render_template('view.html',data=data)
+
+@app.route('/admin/fjewiewirw4i3ri',methods=['GET','POST'])
+def admin():
+	user=""
+	passwd=""
+	data = []
+	myquery = { "name": { "$regex": "^[a-z]|^[A-Z]" } }
+	for i in mycol.find(myquery):
+		data.append(i["name"])
+		data = sorted(data)
+	if request.method =='POST':
+		user = request.form.get('login')
+		passwd = request.form.get('pass')
+		if user == 'mani' and passwd == 'pass123':
+			return render_template('admin.html',data=data)
+		else:
+			return "<h1>Not Allowed</h1>"
+	else:
+		return render_template('admin.html',data=data)
+
+@app.route('/admin/auth',methods=['GET','POST'])
+def auth():
+	return render_template('login.html')
+
+@app.route('/del/<val>')
+def delete(val):
+	myquery = { "name": val }
+	mycol.delete_one(myquery)
+	return redirect('/admin/fjewiewirw4i3ri')
+
+
 if __name__ == '__main__':
 	app.run(debug=True)
-
