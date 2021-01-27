@@ -37,7 +37,7 @@ def see():
 	for i in mycol.find(myquery):
 		data.append(i["name"])
 		data = sorted(data)
-	return render_template('view.html',data=data)
+	return render_template('view2.html',data=data)
 
 @app.route('/admin/fjewiewirw4i3ri',methods=['GET','POST'])
 def admin():

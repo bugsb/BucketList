@@ -258,6 +258,8 @@ html {
   } 
   
   #icon {
-    width:60%;
+    width:90%;
+    border-radius: 1.5rem;
+    padding: 5px;
   }
   
